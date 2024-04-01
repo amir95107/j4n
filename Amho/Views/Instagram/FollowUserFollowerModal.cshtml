@@ -1,0 +1,26 @@
+﻿@{
+    bool isFollow = ViewBag.IsFollow;
+}
+
+<h3 class="text-center text-dark">@(isFollow?"فالو کردن":"آنفالو کردن")</h3>
+
+<form onsubmit="@(isFollow?"followUserFollowers(event)":"unfollowUserFollowers(event)")" class="text-dark">
+    @if (isFollow)
+    {
+        <div class="form-group">
+            <label class="control-label" for="username">نام کاربری</label>
+            <input name="username" id="username" type="text" class="form-control" />
+        </div>
+    }
+    <div class="form-group">
+        <label class="control-label" for="count">تعداد</label>
+        <input name="count" id="count" type="number" class="form-control" />
+    </div>
+    <input type="submit" class="btn btn-primary" value="شروع" />
+</form>
+
+<style>
+    .form-group input[type="text"], .form-group input[type="number"] {
+        width: 100%
+    }
+</style>

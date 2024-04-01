@@ -1,0 +1,17 @@
+﻿@{
+    var followers = ViewBag.Followers;
+}
+
+<ul class="list-group p-0">
+    @foreach (var item in followers.Value)
+    {
+    <li class="list-group-item text-left" dir="ltr">
+        <a onclick="showUser('@item.UserName')">
+            @item.UserName
+        </a>
+        <a class="btn btn-success pull-right" onclick="showFollowUserForm(true,'@item.UserName')">follow user follower</a>
+        <a class="btn btn-primary pull-right" onclick="showUserPosts('@item.UserName')">posts</a>
+    </li>
+    }
+
+</ul>

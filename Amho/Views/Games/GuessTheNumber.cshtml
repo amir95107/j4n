@@ -1,0 +1,242 @@
+﻿
+@{
+    ViewBag.Title = "GuessTheNumber";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="Amirhossein Janmohammadi">
+    <meta name="description" content="رزومه شخصی امیرحسین جانمحمدی | بازی های ساده جاوااسکریپتی | سفارش پروژه">
+    <meta name="google-site-verification" content="2-ExpMggwFP2fhNRU9DxFYPmd4XAW_Wv5XVF6y6oKkA" />
+    <link rel="canonical" href="/games/guessthenumber">
+    <link rel="icon" href="~/Content/img/Logo_new.png" />
+    <link rel="stylesheet" href="~/Content/bootstrap.min.css">
+    <link rel="stylesheet" href="~/Content/css/main.css">
+    <link rel="stylesheet" href="~/Content/css/am-styles.css">
+    <title>عدد رو حدس بزن</title>
+    <style>
+        .numb {
+            width: 50px;
+            text-align: center;
+            font-size: 2em;
+            padding: 0;
+            transition: 0.3s cubic-bezier(0.6, -0.28, 0.735, 0.045);
+        }
+
+        .game-area {
+            max-width: 900px;
+            margin: 1rem auto;
+            text-align: center;
+            flex-wrap: wrap;
+        }
+
+        input {
+            transition: 0.3s cubic-bezier(0.6, -0.28, 0.735, 0.045);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="device-notification" style="display: none;">
+        <a class="device-notification--logo" href="#0">
+            <img src="~/content/img/Logo_new.png" alt="Global">
+        </a>
+        <p class="device-notification--message">متاسفانه سایت من نمیتونه در دستگاه شما به نمایش دربیاد</p>
+    </div>
+
+    <div class="perspective effect-rotate-left" style="display: block;">
+        <div class="container">
+            <div class="outer-nav--return"></div>
+            <div id="viewport" class="l-viewport _game">
+                <div class="l-wrapper">
+                    <header class="header">
+                        <a class="header--logo" href="/">
+                            <img src="~/content/img/Logo_new.png" alt="Global">
+                        </a>
+                        <button class="header--cta cta">درخواست همکاری</button>
+                        <div class="header--nav-toggle">
+                            <span></span>
+                        </div>
+                    </header>
+                    <!-- <nav class="l-side-nav">
+                        <ul class="side-nav">
+                            <li data-item="home"><span>خانه</span></li>
+                            <li data-item="works"><span>نمونه کارها</span></li>
+                            <li data-item="about"><span>درباره من</span></li>
+                            <li class="is-active" data-item="game"><span>بازی</span></li>
+                            <li data-item="puzzle"><span>معما</span></li>
+                            <li data-item="contact"><span>تماس</span></li>
+                            <li data-item="hire"><span>همکاری</span></li>
+                        </ul>
+                    </nav> -->
+                    <div class="game-canvas d-flex align-items-center
+                       justify-content-center ">
+                        <div class="game-canvas-wrapper text-center">
+                            <div class="game-description alert alert-info ">
+                                <h3 class="text-center">بازی حدس عدد</h3>
+                                <p class="rtl text-center">
+                                    این بازی به این صورته که با زدن دکمه شروع یک عدد چند رقمی به صورت تصادفی ساخته میشه.حالا کاری که شما باید بکنید این هست که با بالا پایین کردن
+                                    ارقام این عدد ، بهش برسید.اگر رقمیو درست حدس زده باشید رنگ زمینش سبز میشه اگه حدستون بزرگتر از رقم درست باشه زمینه آبی
+                                    و اگر کوچکتر باشه ، قرمز میشه.هدف اینه که با کمترین تعداد حدس به عدد درست برسید.در ضمن اسمتون و تعداد ارقامی که دوست دارید عدد داشته باشه ، فراموش نشه.
+                                </p>
+                            </div>
+                            <div class="game-description alert alert-success" style="display: none;" id="result"></div>
+                            <div class="m-2" id="nameArea">
+                                <input class="form-control m-auto text-center"
+                                       style="width:200px" type="text" id="name" placeholder="لطفا نام خود را وارد کنید" />
+                            </div>
+
+                            <div class="guess-count alert alert-success m-auto" id="guessArea"
+                                 style="display: none;width:200px">تعداد حدس ها:<span id="guessCount"></span></div>
+
+                            <!-- <div class="guess-count alert alert-warning m-auto" id="timeArea"
+                                style="display: none;width:200px"><span id="time">0</span></div> -->
+
+                            <div class="m-2" id="digitCountArea">
+                                <input class="form-control m-auto text-center" style="width:200px"
+                                       type="number" id="digitCount" placeholder="تعداد ارقام" />
+                            </div>
+                            <div class="game-area form-group d-flex justify-content-center" id="gameArea">
+
+                            </div>
+                            <div class="button-group rtl text-center">
+                                <button id="btn" class="btn btn-outline-primary">شروع</button>
+                                <button id="refreshBtn" class="btn btn-primary" disabled
+                                        onclick="window.location.reload()">
+                                    بازی مجدد
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <ul class="outer-nav">
+            <li data-item="home"><a href="/#home">خانه</a></li>
+            <li data-item="works"><a href="/#works">نمونه کارها</a></li>
+            <li data-item="about"><a href="/#about">درباره من</a></li>
+            <li data-item="games" class="is-active"><a>بازی</a></li>
+            <!-- <li data-item="puzzle"><a href="/#puzzle">معما</a></li> -->
+            <li data-item="contact"><a href="/#contact">ارتباط با من</a></li>
+            <li data-item="hire"><a href="/#hire">همکاری</a></li>
+        </ul>
+    </div>
+
+    <style>
+        header {
+            background-color: #0c0c0c;
+        }
+    </style>
+    <script src="~/Content/js/jquery.js"></script>
+    <!-- <script src="../assets/js/bootstrap.min.js"></script> -->
+    @*<script src="~/Content/js/functions-min.js"></script>*@
+    <script src="~/Content/js/myFunctions.js"></script>
+
+    <script>
+        const gameArea = document.getElementById('gameArea');
+        const btn = document.getElementById("btn");
+        const refreshBtn = document.getElementById('refreshBtn');
+        let isGame = false;
+        let guessCount = 0;
+        let result = document.getElementById('result');
+
+        // const timeArea = document.getElementById('timeArea');
+        // let time = document.getElementById('time');
+
+        btn.addEventListener("click", () => {
+            if (!isGame) {
+                isGame = true;
+                btn.innerHTML = 'چک کن';
+                inputMaker();
+
+            } else {
+                const numbers = document.querySelectorAll('.numb');
+                for (let i = 0; i < numbers.length; i++) {
+                    if (numbers[i].value == numbers[i].correct) {
+                        numbers[i].style.backgroundColor = 'green';
+                        numbers[i].setAttribute('correct', true);
+                    }
+                    if (numbers[i].value > numbers[i].correct) {
+                        numbers[i].style.backgroundColor = 'blue';
+                    } if (numbers[i].value < numbers[i].correct) {
+                        numbers[i].style.backgroundColor = 'red';
+                    }
+                }
+                guessCount++;
+                let guessArea= document.getElementById('guessArea')
+                if (guessCount > 0) {
+                    guessArea.style.display = "block";
+                }if(guessCount > numbers.length*2 && guessCount <= 2*numbers.length*2){
+                    guessArea.classList.remove('alert-success');
+                    guessArea.classList.add('alert-warning');
+                }if(guessCount > 2*numbers.length*2 && guessCount <= 3*numbers.length*2){
+                    guessArea.classList.remove('alert-warning');
+                    guessArea.classList.add('alert-danger');
+                }
+                document.getElementById("guessCount").innerHTML = guessCount;
+                if (document.querySelectorAll('.numb[correct]').length === numbers.length) {
+                    //alert('hey,you win with' + (guessCount) + 'guess');
+
+                    var name = document.getElementById('name').value;
+                    result.innerHTML = `تبریک میگم ${name} ، تو با ${createBadge(guessCount,"warning")} حدس  موفق شدی در  ${createBadge(timer(),"primary")} ثانیه عدد رو حدس بزنی `;
+                    result.style.display = 'block'
+                    btn.style.display = 'none';
+                    refreshBtn.removeAttribute('disabled');
+                }
+
+            }
+        });
+
+        inputMaker = () => {
+            if (inputValidation()) {
+                setInterval(timer,1000);
+                document.getElementById('digitCountArea').style.opacity = 0;
+                document.getElementById('name').setAttribute('disabled', 'disable');
+                let digitCount = document.getElementById('digitCount').value;
+                for (let i = 0; i < digitCount; i++) {
+                    let $input = document.createElement('input');
+                    $input.setAttribute("type", "number");
+                    $input.min = "0";
+                    $input.max = "9";
+                    $input.size = "1";
+                    $input.order = i;
+                    $input.classList.add('numb');
+                    $input.classList.add('form-control');
+                    $input.value = 0;
+                    $input.correct = Math.floor(Math.random() * 10);
+                    gameArea.appendChild($input);
+                }
+            } else {
+                alert('لطفا نام و یا عدد را بنویسید')
+            }
+        }
+
+        inputValidation = () => {
+            let name = document.getElementById('name').value;
+            let digitCount = document.getElementById('digitCount').value;
+            let isValid = false;
+            if (name.value != "" && name.value != " " && +digitCount > 0) {
+                isValid = true;
+            }
+            return isValid;
+        }
+        let ticking = 0;
+        timer = () => {
+            ticking++;
+            return ticking;
+        }
+
+        createBadge = (element,type) => {
+            return `<span class="badge badge-${type}">${element}</span>`;
+        }
+    </script>
+</body>
+
+</html>
+

@@ -1,0 +1,54 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    var user = ViewBag.User;
+}
+@section Styles{
+
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+}
+
+@section Scripts{
+    <script src="~/Content/js/bootstrap.min.js"></script>
+}
+
+
+<ul class="l-main-content main-content">
+    <!--home-->
+    <li class="l-section section section--is-active am-home" id="home">
+        <div class="intro">
+            <div class="card p-5">
+                
+                <img src="@user.ProfilePicUrl" class="m-auto" />
+                <hr />
+                <h3 class="text-center text-secondary">@user.FullName</h3>
+                <hr />
+                <div class="row">
+                    <div class="col-md-6">
+                        <a onclick="getFollowers('@user.UserName')" class="btn btn-info">
+                            My Followers
+                        </a>
+                    </div>
+                    <div class="col-md-6 row">
+                        <div class="col-md-6">
+                            <a onclick="showFollowUserForm(true,'')" class="btn btn-primary">
+                                Follow
+                            </a>
+                        </div>
+                        <div class="col-md-6">
+                            <a onclick="showFollowUserForm(false)" class="btn btn-warning">
+                                Unfollow
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6">
+                        <a onclick="showFWNf()" class="btn btn-danger">
+                            Followings which are not follower
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+</ul>

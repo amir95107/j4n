@@ -1,0 +1,101 @@
+﻿<!DOCTYPE html>
+<html lang="fa">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="Amirhossein Janmohammadi">
+    <meta name="description" content="رزومه شخصی امیرحسین جانمحمدی | بازی های ساده جاوااسکریپتی | سفارش پروژه">
+    <meta name="google-site-verification" content="2-ExpMggwFP2fhNRU9DxFYPmd4XAW_Wv5XVF6y6oKkA" />
+    <link rel="canonical" href="http://amho.ir">
+    @RenderSection("Styles",false)
+    <link rel="icon" href="/Content/img/Logo_new.png" />
+    <link rel="stylesheet" href="/Content/css/main.css">
+    <link rel="stylesheet" href="/Content/css/am-styles.css">
+    <title>امیرحسین جانمحمدی</title>
+</head>
+
+<body>
+
+    <!-- notification for small viewports and landscape oriented smartphones -->
+    <div class="device-notification">
+        <a class="device-notification--logo" href="/">
+            <img src="~/Content/img/Logo_new.png" alt="Global">
+        </a>
+        <p class="device-notification--message">متاسفانه سایت من نمیتونه در دستگاه شما به نمایش دربیاد</p>
+    </div>
+
+    <div class="perspective effect-rotate-left">
+        <div class="container">
+            <div class="outer-nav--return"></div>
+            <div id="viewport" class="l-viewport _main">
+                <div class="l-wrapper">
+                    <header class="header">
+                        <a class="header--logo" href="/">
+                            <img src="/Content/img/Logo_new.png" alt="Global">
+                        </a>
+                        <button class="header--cta cta">درخواست همکاری</button>
+                        <div class="header--nav-toggle">
+                            <span></span>
+                        </div>
+                    </header>
+                    <nav class="l-side-nav">
+                        <ul class="side-nav">
+                            <li class="is-active" data-item="home"><span>خانه</span></li>
+                            <li data-item="works"><span>نمونه کارها</span></li>
+                            <li data-item="about"><span>درباره من</span></li>
+                            <li data-item="games"><span>بازی ها</span></li>
+                            <!-- <li data-item="puzzle"><span>معما</span></li> -->
+                            <li data-item="contact"><span>تماس</span></li>
+                            <li data-item="hire"><span>همکاری</span></li>
+                        </ul>
+                    </nav>
+                    @RenderBody()
+                </div>
+            </div>
+        </div>
+        <ul class="outer-nav">
+            <li class="is-active" data-item="home">خانه</li>
+            <li data-item="works">نمونه کارها</li>
+            <li data-item="about">درباره من</li>
+            <li data-item="games">بازی ها</li>
+            <!-- <li data-item="puzzle">معما</li> -->
+            <li data-item="contact">ارتباط با من</li>
+            @if (!User.Identity.IsAuthenticated)
+            {
+                <li data-item="hire">همکاری</li>
+            }
+        </ul>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade rtl" id="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modal-title"></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body text-center" id="modal-body">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-close btn-secondary" data-dismiss="modal">ok</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <link href="~/Content/css/modal/bootstrap-theme.min.css" rel="stylesheet" />
+    <link href="~/Content/css/modal/bootstrap.min.css" rel="stylesheet" />
+    <script src="/Content/js/jquery.js"></script>
+    <script src="/Content/js/iconify.js"></script>
+    
+    <script src="/Content/js/myFunctions.js"></script>
+    <script src="~/Content/js/modal-bootstrap.min.js"></script>
+    @RenderSection("Scripts", false)
+
+</body>
+
+</html>

@@ -1,0 +1,18 @@
+﻿@{
+    var list = ViewBag.List;
+    int count = ViewBag.Count;
+}
+
+<span id="countFNG">@count</span>
+<ul class="list-group p-0">
+    @foreach (var item in list)
+    {
+        <li class="list-group-item text-left">
+            <a href="#" onclick="showUser()" value="@item.UserName">
+                @item.UserName
+            </a>
+            <a class="btn btn-danger pull-right btn-unfollow" onclick="unfollowUser(event,'@item.UserName')">unfollow</a>
+        </li>
+    }
+
+</ul>

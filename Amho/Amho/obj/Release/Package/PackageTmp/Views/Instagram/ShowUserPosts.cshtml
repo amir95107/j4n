@@ -1,0 +1,15 @@
+﻿@{ 
+    var list = ViewBag.List;
+}
+
+    <div class="row">
+        @foreach (var item in list.Value)
+        {
+            <div class="col-sm-2 col-md-3">
+                <a onclick="showPost()">
+                    <img src="@item.Images[0].Uri" />
+                </a>
+                <span>@item.LikesCount</span>
+            </div>
+        }
+    </div>

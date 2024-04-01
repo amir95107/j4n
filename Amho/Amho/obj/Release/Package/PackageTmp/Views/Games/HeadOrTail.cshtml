@@ -1,0 +1,186 @@
+﻿
+@{
+    ViewBag.Title = "HeadOrTail";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="fa">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="Amirhossein Janmohammadi">
+    <meta name="description" content="رزومه شخصی امیرحسین جانمحمدی | بازی های ساده جاوااسکریپتی | سفارش پروژه">
+    <meta name="google-site-verification" content="2-ExpMggwFP2fhNRU9DxFYPmd4XAW_Wv5XVF6y6oKkA" />
+    <link rel="canonical" href="/games/headOrTail.html">
+    <link rel="icon" href="~/content/img/Logo_new.png" />
+    <link rel="stylesheet" href="~/content/bootstrap.min.css">
+    <link rel="stylesheet" href="~/content/css/main.css">
+    <link rel="stylesheet" href="~/content/css/am-styles.css">
+    <title>امیرحسین | بازی شیر یا خط</title>
+</head>
+
+<body>
+
+    <!-- notification for small viewports and landscape oriented smartphones -->
+    <div class="device-notification" style="display: none;">
+        <a class="device-notification--logo" href="#0">
+            <img src="~/content/img/Logo_new.png" alt="Global">
+        </a>
+        <p class="device-notification--message">متاسفانه سایت من نمیتونه در دستگاه شما به نمایش دربیاد</p>
+    </div>
+
+    <div class="perspective effect-rotate-left" style="display: block;">
+        <div class="container">
+            <div class="outer-nav--return"></div>
+            <div id="viewport" class="l-viewport _game">
+                <div class="l-wrapper">
+                    <header class="header">
+                        <a class="header--logo" href="/">
+                            <img src="~/content/img/Logo_new.png" alt="Global">
+                        </a>
+                        <button class="header--cta cta">درخواست همکاری</button>
+                        <div class="header--nav-toggle">
+                            <span></span>
+                        </div>
+                    </header>
+                    <!-- <nav class="l-side-nav">
+                        <ul class="side-nav">
+                            <li data-item="home"><span>خانه</span></li>
+                            <li data-item="works"><span>نمونه کارها</span></li>
+                            <li data-item="about"><span>درباره من</span></li>
+                            <li class="is-active" data-item="game"><span>بازی</span></li>
+                            <li data-item="puzzle"><span>معما</span></li>
+                            <li data-item="contact"><span>تماس</span></li>
+                            <li data-item="hire"><span>همکاری</span></li>
+                        </ul>
+                    </nav> -->
+                    <div class="game-canvas d-flex align-items-center
+                       justify-content-center ">
+                        <div class="game-canvas-wrapper text-center">
+                            <div class="game-description">
+                                <h3 class="text-center">بازی شیر یا خط</h3>
+                                <p class="rtl text-center">
+                                    اول اسمتو بنویس ، بعد امتیازی که اگه کسی به اون برسه، میبره رو بزن.
+                                    حالا نوبت اینه که شانستو امتحان کنی...
+                                </p>
+                            </div>
+                            <div class="alert total-result rtl text-center" id="finalResult" style="display: none;">
+                                <span id="winner"></span>
+                            </div>
+                            <div class="inputName_wrapper rtl mb-2">
+                                <input type="text" id="yourName" value="" class="form-control m-auto"
+                                       placeholder="لطفا نام خود را وارد کنید" oninput="typeNames(event)" />
+                            </div>
+                            <div class="inputName_wrapper rtl mb-2">
+                                <input type="number" id="winnerScore" value="" class="form-control m-auto"
+                                       placeholder="امتیاز برنده" />
+                            </div>
+                            <div class="alert alert-primary current-result">
+                                <span id="myName" class="m-2"></span><span id="yourCurrentResult">0</span> :
+                                <span id="computerCurrentResult">0</span><span id="computer" class="m-2"></span>
+                            </div>
+                            <div class="button-group">
+                                <button class="btn btn-warning">شیر</button>
+                                <button class="btn btn-primary">خط</button>
+                            </div>
+                            <div class="status card bg-transparent" dir="rtl">
+                                <div class="d-flex justify-content-center">انتخاب شما:<span id="yourGuess"></span></div>
+                                <br />
+                                <div class="d-flex justify-content-center">
+                                    انتخاب کامپیوتر:<span id="computerGuess"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <ul class="outer-nav">
+            <li data-item="home"><a href="/#home">خانه</a></li>
+            <li data-item="works"><a href="/#works">نمونه کارها</a></li>
+            <li data-item="about"><a href="/#about">درباره من</a></li>
+            <li data-item="games" class="is-active"><a>بازی</a></li>
+            <!-- <li data-item="puzzle"><a href="/#puzzle">معما</a></li> -->
+            <li data-item="contact"><a href="/#contact">ارتباط با من</a></li>
+            <li data-item="hire"><a href="/#hire">همکاری</a></li>
+        </ul>
+    </div>
+    <style>
+        header {
+            background-color: #0c0c0c;
+        }
+    </style>
+    <script src="~/Content/js/jquery.js"></script>
+     <script src="~/Content/js/bootstrap.min.js"></script> 
+    @*<script src="~/Content/js/functions-min.js"></script>*@
+    <script src="~/Content/js/myFunctions.js"></script>
+    <script>
+        const selects = ['شیر', 'خط'];
+        let score = [0, 0];
+        const buttons = $('.btn');
+
+        function typeNames(e) {
+            $('#myName').html(e.target.value);
+            $('#computer').html('کامپیوتر');
+        }
+
+
+        for (let i = 0; i < buttons.length; i++) {
+            buttons[i].addEventListener("click", handleClick)
+        }
+
+        function handleClick(e) {
+            var isNotEmpty = $('#yourName').val().length && $('#winnerScore').val() > 0;
+            if (isNotEmpty) {
+                const name = $("#yourName").val();
+                const computerGuess = selects[Math.floor(Math.random() * selects.length)]
+                const yourGuess = e.target.innerText;
+                const winnerScore = $('#winnerScore').val();
+                let result;
+                let _class;
+
+                $('#yourName,#winnerScore').attr('disabled', 'disable')
+                if (computerGuess === yourGuess) {
+                    score[0]++;
+                    if (score[0] == winnerScore) {
+                        result = `${name}، تبریک میگم تو بردی!`;
+                        _class = 'alert-success';
+                        $('#finalResult').show().addClass(_class);
+                        $('#winner').html(result);
+                        $('#yourCurrentResult').html(score[0]);
+                    } else {
+                        $('#yourCurrentResult').html(score[0]);
+                    }
+                } else {
+                    score[1]++;
+                    if (score[1] == winnerScore) {
+                        result = `متاسفم ${name}، تو باختی!`
+                        _class = 'alert-danger';
+                        $('#finalResult').show().addClass(_class);
+                        $('#winner').html(result);
+                        $('#computerCurrentResult').html(score[1]);
+                    } else {
+                        $('#computerCurrentResult').html(score[1]);
+                    }
+                }
+                $('#yourGuess').html(yourGuess);
+                $('#computerGuess').html(computerGuess);
+            } else {
+                alert('لطفا مقادیر لازم رو وارد کنید')
+            }
+        }
+
+        $(window).ready(() => {
+            const pageName = this.location.pathname.split('/')[1];
+            $('.outer-nav li').removeClass('is-active');
+            $(`.outer-nav li[data-item="${pageName}"]`).addClass('is-active');
+        })
+
+
+    </script>
+</body>
+
+</html>

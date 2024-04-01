@@ -1,0 +1,6 @@
+﻿@{
+    bool isFollow = ViewBag.IsFollow;
+    int count = ViewBag.Count;
+}
+
+<div class="text-center text-white">@count نفر با موفقیت @(isFollow ? "فالوو": "آنفالوو") شدند!</div>

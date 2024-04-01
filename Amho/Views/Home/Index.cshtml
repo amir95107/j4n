@@ -1,0 +1,760 @@
+﻿@model DataLayer.Requests
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<ul class="l-main-content main-content">
+    <!--home-->
+    <li class="l-section section section--is-active am-home" id="home">
+        <div class="intro">
+            <div class="intro--banner">
+                <h2><span>بینهایتِ خلاقیت را</span><br class="in_desktop" /><span>با ما تجربه کنید</span></h2>
+                <h1><span>امیرحسین جانمحمدی - توسعه دهنده وب</span></h1>
+                <button class="cta mb-3">
+                    درخواست همکاری
+                    <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                         xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 150 118"
+                         style="enable-background: new 0 0 150 118" xml:space="preserve">
+                    <g transform="translate(0.000000,118.000000) scale(0.100000,-0.100000)">
+                    <path d="M870,1167c-34-17-55-57-46-90c3-15,81-100,194-211l187-185l-565-1c-431,0-571-3-590-13c-55-28-64-94-18-137c21-20,33-20,597-20h575l-192-193C800,103,794,94,849,39c20-20,39-29,61-29c28,0,63,30,298,262c147,144,272,271,279,282c30,51,23,60-219,304C947,1180,926,1196,870,1167z" />
+
+
+
+                    </g>
+                </svg>
+                    <span class="btn-background border-radius-5"></span>
+                </button>
+                <br />
+                <button class="am_consaltant-btn">
+                    مشاوره رایگان
+                    <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                         xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 150 118"
+                         style="enable-background: new 0 0 150 118" xml:space="preserve">
+                    <g transform="translate(0.000000,118.000000) scale(0.100000,-0.100000)">
+                    <path d="M870,1167c-34-17-55-57-46-90c3-15,81-100,194-211l187-185l-565-1c-431,0-571-3-590-13c-55-28-64-94-18-137c21-20,33-20,597-20h575l-192-193C800,103,794,94,849,39c20-20,39-29,61-29c28,0,63,30,298,262c147,144,272,271,279,282c30,51,23,60-219,304C947,1180,926,1196,870,1167z" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    </g>
+                </svg>
+                    <span class="btn-background border-radius-5"></span>
+                </button>
+                <img src="/Content/img/introduction-visual.png" alt="Welcome" id="currentImg" />
+            </div>
+            <div class="intro--options rtl">
+                <a onclick="changeImage(event)" data-src="ui-ux" class="is-active rtl" data-slide="1">
+                    <h2 class="rtl">طراحی ui/ux</h2>
+                    <p class="rtl">زیبایی در کنار رعایت اصول تجربه کاربری</p>
+                </a>
+                <a class="rtl is-active" onclick="changeImage(event)" data-src="tech" data-slide="2">
+                    <h2>پیشرو در تکنولوژی</h2>
+                    <p> استفاده از جدیدترین تکنولوژی ها در برنامه نویسی سایت</p>
+                </a>
+                <a class="rtl is-active" onclick="changeImage(event)" data-src="responsive" data-slide="3">
+                    <h2>طراحی واکنشگرا</h2>
+                    <p>طراحی برای تمام دستگاه ها با سایزهای متفاوت</p>
+                </a>
+            </div>
+        </div>
+    </li>
+    <li class="l-section section am-works" id="works">
+        <div class="work">
+            <h2>نمونه کارها</h2>
+            <h4 class="" style="text-align: center;">
+                نمونه کارهایی که یا تماما خودم انجام دادم یا عضوی از تیم توسعه
+                آن بودم.
+            </h4>
+            <div class="work--lockup">
+                <ul class="slider">
+                    <li class="slider--item slider--item-right">
+                        <a href="https://4food.ir">
+                            <div class="slider--item-image">
+                                <img src="/Content/img/4food.jpg" alt="Victory" />
+                            </div>
+                            <p class="slider--item-title">4فود</p>
+                            <div class="slider--item-description">
+                                <div class="am_icon-wrapper">
+                                    <span title="Asp.net"><img src="/Content/img/aspdotnet.png" /></span>
+                                    <span title="JQuery"><img src="/Content/img/jq.png" /></span>
+                                    <span title="Bootstrap"><img src="/Content/img/bootstrap.png" /></span>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="slider--item slider--item-left">
+                        <a href="http://sefareshmostaghim.com/">
+                            <div class="slider--item-image">
+                                <img src="/Content/img/ul.jpg" alt="Metiew and Smith" />
+                            </div>
+                            <p class="slider--item-title">پلتفرم سفارش مسقیم</p>
+                            <div class="slider--item-description">
+                                <div class="am_icon-wrapper">
+                                    <span title="Asp.net"><img src="/Content/img/aspdotnet.png" /></span>
+                                    <span title="JQuery"><img src="/Content/img/jq.png" /></span>
+                                    <span title="Bootstrap"><img src="/Content/img/bootstrap.png" /></span>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="slider--item slider--item-center">
+                        <a href="http://tarcodeara.com">
+                            <div class="slider--item-image">
+                                <img src="/Content/img/tarcodeara.jpg" alt="Alex Nowak" />
+                            </div>
+                            <p class="slider--item-title">تارکدآرا</p>
+                            <div class="slider--item-description">
+                                <div class="am_icon-wrapper">
+                                    <span title="JQuery"><img src="/Content/img/jq.png" /></span>
+                                    <span title="Bootstrap"><img src="/Content/img/bootstrap.png" /></span>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="slider--item">
+                        <a href="http://crmgostaresh.com/">
+                            <div class="slider--item-image">
+                                <img src="/Content/img/charchoob.jpg" alt="Alex Nowak" />
+                            </div>
+                            <p class="slider--item-title">نرم‌افزار مدیریت سازمانی چارچوب</p>
+                            <div class="slider--item-description">
+                                <div class="am_icon-wrapper">
+                                    <span title="Asp.net"><img src="/Content/img/aspdotnet.png" /></span>
+                                    <span title="JQuery"><img src="/Content/img/jq.png" /></span>
+                                    <span title="Bootstrap"><img src="/Content/img/bootstrap.png" /></span>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="slider--item">
+                        <a href="https://jamsports.ir/">
+                            <div class="slider--item-image">
+                                <img src="/Content/img/jamsports.jpg" alt="Alex Nowak" />
+                            </div>
+                            <p class="slider--item-title">فروشگاه کوهنوردی جم اسپورت</p>
+                            <div class="slider--item-description">
+                                <div class="am_icon-wrapper">
+                                    <span title="wp"><img src="/Content/img/wp.png" /></span>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="slider--item">
+                        <a href="https://ghajarifood.com">
+                            <div class="slider--item-image">
+                                <img src="/Content/img/ghajari.jpg" alt="Alex Nowak" />
+                            </div>
+                            <p class="slider--item-title">پنل ادمین رستوران قجری</p>
+                            <div class="slider--item-description">
+                                <div class="am_icon-wrapper">
+                                    <span title="Asp.net"><img src="/Content/img/aspdotnet.png" /></span>
+                                    <span title="JQuery"><img src="/Content/img/jq.png" /></span>
+                                    <span title="Bootstrap"><img src="/Content/img/bootstrap.png" /></span>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="slider--item">
+                        <a href="http://kavoshcell.ir">
+                            <div class="slider--item-image">
+                                <img src="/Content/img/kavoshcell.jpg" alt="Alex Nowak" />
+                            </div>
+                            <p class="slider--item-title">کاوش سلولز</p>
+                            <div class="slider--item-description">
+                                <div class="am_icon-wrapper">
+                                    <span title="wp"><img src="/Content/img/wp.png" /></span>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="slider--item">
+                        <a href="https://safavico.com/">
+                            <div class="slider--item-image">
+                                <img src="/Content/img/safavico.jpg" alt="Alex Nowak" />
+                            </div>
+                            <p class="slider--item-title">کمپرسور صفوی</p>
+                            <div class="slider--item-description">
+                                <div class="am_icon-wrapper">
+                                    <span title="wp"><img src="/Content/img/wp.png" /></span>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+
+
+                <div class="slider--prev">
+                    <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                         xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 150 118"
+                         style="enable-background:new 0 0 150 118" xml:space="preserve">
+                    <g transform="translate(0.000000,118.000000) scale(0.100000,-0.100000)">
+                    <path d="M870,1167c-34-17-55-57-46-90c3-15,81-100,194-211l187-185l-565-1c-431,0-571-3-590-13c-55-28-64-94-18-137c21-20,33-20,597-20h575l-192-193C800,103,794,94,849,39c20-20,39-29,61-29c28,0,63,30,298,262c147,144,272,271,279,282c30,51,23,60-219,304C947,1180,926,1196,870,1167z" />
+
+
+
+
+
+
+
+                    </g>
+                </svg>
+                </div>
+                <div class="slider--next">
+                    <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                         xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 150 118"
+                         style="enable-background: new 0 0 150 118" xml:space="preserve">
+                    <g transform="translate(0.000000,118.000000) scale(0.100000,-0.100000)">
+                    <path d="M561,1169C525,1155,10,640,3,612c-3-13,1-36,8-52c8-15,134-145,281-289C527,41,562,10,590,10c22,0,41,9,61,29
+                                  c55,55,49,64-163,278L296,510h575c564,0,576,0,597,20c46,43,37,109-18,137c-19,10-159,13-590,13l-565,1l182,180
+                                  c101,99,187,188,193,199c16,30,12,57-12,84C631,1174,595,1183,561,1169z" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    </g>
+                </svg>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li class="l-section section am-about" id="about">
+        <div class="about">
+            <div class="about--banner">
+                <div class="am_about-item am_education card bg-light-gray am_about-item-is-active"
+                     data-item="education">
+                    <div class="card-header">
+                        <h2>تحصیلات</h2>
+                    </div>
+                    <div class="card-body">
+                        <p>
+                            کارشناسی : مهندسی صنایع دانشگاه تهران
+                        </p>
+                    </div>
+                </div>
+                <div class="am_about-item am_skills card bg-light-gray" id="div" data-item="skills">
+                    <div class="card-header">
+
+                    </div>
+                    <div class="card-body" style="display:flex">
+                        <div class="text">
+                            <h2>تخصص</h2>
+                            <ul>
+                                <li>Html</li>
+                                <li>Css</li>
+                                <li>JavaScript/JQuery</li>
+                                <li>#c</li>
+                                <li>Asp.net MVC</li>
+                                <li>WordPress</li>
+                            </ul>
+                            <h2>آشنا با</h2>
+                            <ul>
+                                <li>ReactJs</li>
+                                <li>net Windows Form.</li>
+                                <li>MySQL/SQL Server</li>
+                            </ul>
+                        </div>
+                        <div class="img-circle">
+                            <img src="/Content/img/skill.png" style="position: relative;top: auto" />
+                        </div>
+                    </div>
+                </div>
+                <div class="am_about-item am_education card bg-light-gray" data-item="experience">
+                    <div class="card-header">
+                        <h2>سوابق</h2>
+                    </div>
+                    <div class="card-body">
+                        <ul>
+                            <li>
+                                اُکالا - 2ماه
+                            </li>
+                            <li>
+                                تارکدآرا - 7ماه
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="am_about-item am_education card bg-light-gray" data-item="others">
+                    <div class="card-header">
+                        <h2>سایر</h2>
+                    </div>
+                    <div class="card-body">
+
+                    </div>
+                </div>
+                <!-- {/* <a href="#0">Career
+                    <span>
+                        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                             xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 150 118"
+                             style="enable-background: new 0 0 150 118" xml:space="preserve">
+                            <g transform="translate(0.000000,118.000000) scale(0.100000,-0.100000)">
+                                <path
+                                    d="M870,1167c-34-17-55-57-46-90c3-15,81-100,194-211l187
+                                        -185l-565-1c-431,0-571-3-590-13c-55-28-64-94-18-137c21-20,33-20,
+                                        597-20h575l-192-193C800,103,794,94,849,39c20-20,39-29,61-29c28,0
+                                        ,63,30,298,262c147,144,272,271,279,282c30,51,23,60-219,304C947,1180,926,1196,870,1167z" />
+                            </g>
+                        </svg>
+                    </span>
+                </a> */} -->
+                <img src="/Content/img/amir.png" alt="About Us" id="amir" onclick="touchFunction()" />
+            </div>
+            <div class="about--options rtl">
+                <a onclick="handleAboutItem(event)" data-target="education" class="am_tab-is-active">
+                    <h3>تحصیلات</h3>
+                </a>
+                <a onclick="handleAboutItem(event)" data-target="skills">
+                    <h3>مهارت ها</h3>
+                </a>
+                <a onclick="handleAboutItem(event)" data-target="experience">
+                    <h3>سوابق</h3>
+                </a>
+                <a onclick="handleAboutItem(event)" data-target="others">
+                    <h3>###</h3>
+                </a>
+            </div>
+        </div>
+    </li>
+    <li class="l-section section am-games" id="games">
+        <div class="games">
+
+            <div class="games-body">
+                <div class="games-header">
+                    <h2>بازی ها</h2>
+                </div>
+                <!-- <div class="work--lockup">
+                    <ul class="slider">
+
+                        <li class="slider--item slider--item-center">
+                            <a href="/games/headOrTail.html">
+                                <div class="slider--item-image">
+                                    <img src="/Content/img/headortail.jpg" alt="Metiew and Smith" />
+                                </div>
+                                <p class="slider--item-title">بازی شیر یا خط</p>
+                                <div class="slider--item-description">
+                                    <div class="am_icon-wrapper">
+                                        <span title="JQuery"><img src="/Content/img/jq.png" /></span>
+                                        <span title="Bootstrap"><img src="/Content/img/bootstrap.png" /></span>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+
+                    </ul>
+
+                    <div class="slider--next">
+                        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                             xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 150 118"
+                             style="enable-background: new 0 0 150 118" xml:space="preserve">
+                            <g transform="translate(0.000000,118.000000) scale(0.100000,-0.100000)">
+                                <path d="M561,1169C525,1155,10,640,3,612c-3-13,1-36,8-52c8-15,134-145,281-289C527,41,562,10,590,10c22,0,41,9,61,29
+                                      c55,55,49,64-163,278L296,510h575c564,0,576,0,597,20c46,43,37,109-18,137c-19,10-159,13-590,13l-565,1l182,180
+                                      c101,99,187,188,193,199c16,30,12,57-12,84C631,1174,595,1183,561,1169z" />
+                            </g>
+                        </svg>
+                    </div>
+                    <div class="slider--prev">
+                        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                             xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 150 118"
+                             style="enable-background:new 0 0 150 118" xml:space="preserve">
+                            <g transform="translate(0.000000,118.000000) scale(0.100000,-0.100000)">
+                                <path
+                                    d="M870,1167c-34-17-55-57-46-90c3-15,81-100,194-211l187-185l-565-1c-431,0-571-3-590-13c-55-28-64-94-18-137c21-20,33-20,597-20h575l-192-193C800,103,794,94,849,39c20-20,39-29,61-29c28,0,63,30,298,262c147,144,272,271,279,282c30,51,23,60-219,304C947,1180,926,1196,870,1167z" />
+                            </g>
+                        </svg>
+                    </div>
+                </div> -->
+                <div class="">
+                    <ul class="slider">
+
+                        <li class="slider--item_">
+                            <a href="/games/headOrTail">
+                                <div class="slider--item-image">
+                                    <img src="/Content/img/headortail.jpg" alt="Metiew and Smith" />
+                                </div>
+                                <p class="slider--item-title">بازی شیر یا خط</p>
+                                <div class="slider--item-description">
+                                    <div class="am_icon-wrapper">
+                                        <span title="JQuery"><img src="/Content/img/jq.png" /></span>
+                                        <span title="Bootstrap"><img src="/Content/img/bootstrap.png" /></span>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+
+                        <li class="slider--item_">
+                            <a href="/games/guessthenumber">
+                                <div class="slider--item-image">
+                                    <img src="/Content/img/numbers2.jpg" alt="Metiew and Smith" />
+                                </div>
+                                <p class="slider--item-title">بازی حدس عدد</p>
+                                <div class="slider--item-description">
+                                    <div class="am_icon-wrapper">
+                                        <span title="JQuery"><img src="/Content/img/js.jpg" /></span>
+                                        <span title="Bootstrap"><img src="/Content/img/bootstrap.png" /></span>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </li>
+    <!-- <li class="l-section section am-puzzle" id="puzzle">
+        <div class="puzzle games">
+            <h2>
+                معما
+            </h2>
+        </div>
+    </li> -->
+
+    <li class="l-section section am-contact" id="contact">
+        <div class="contact">
+            <div class="contact--lockup">
+                <div class="modal_">
+                    <div class="modal--information">
+                        <p>ایران، تهران</p>
+                        <a href="mailto:info@amho.ir">info@amho.ir</a>
+                        <a href="tel:+989120624426">09120624426</a>
+                    </div>
+                    <ul class="modal--options">
+                        <li>
+                            <a href="https://t.me/AmirhosseinFED" target="_blank">
+                                <iconify-icon data-icon="logos:telegram" data-width="1.5rem"></iconify-icon>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://wa.me/989375692968" target="_blank">
+                                <iconify-icon data-icon="logos:whatsapp" data-width="1.5rem"></iconify-icon>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="mailto:a.janmohammadi@gmail.com" target="_blank">
+                                <iconify-icon data-icon="logos:google-gmail" data-width="1.5rem"></iconify-icon>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.linkedin.com/in/amirhossein-janmohammadi-a6994a176/" target="_blank">
+                                <iconify-icon data-icon="ls:linkedin" data-width="1.5rem"></iconify-icon>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.instagram.com/amirhossein.janmohammadi" target="_blank">
+                                <iconify-icon data-icon="logos:instagram-icon" data-width="1.5rem"></iconify-icon>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li class="l-section section am-hire" id="hire">
+        <div class="hire">
+            <h2>چه می خواهید؟</h2>
+            <form class="work-request" method="post" onsubmit="sendRequest(event)">
+                <input type="hidden" id="requestItems" class="" />
+                <div class="work-request--options">
+                    <span class="options-a">
+                        <input id="opt-1" type="checkbox" value="backend" />
+                        <label for="opt-1" class="rtl">
+                            <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                                 xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 150 111"
+                                 style="enable-background: new 0 0 150 111" xml:space="preserve">
+                            <g transform="translate(0.000000,111.000000) scale(0.100000,-0.100000)">
+                            <path d="M950,705L555,310L360,505C253,612,160,700,155,700c-6,0-44-34-85-75l-75-75l278-278L550-5l475,475c261,261,475,480,475,485c0,13-132,145-145,145C1349,1100,1167,922,950,705z" />
+
+
+
+
+
+
+
+                            </g>
+                        </svg>
+                            توسعه بک اند
+                        </label>
+                        <input id="opt-2" type="checkbox" value="website-developing" />
+                        <label for="opt-2">
+                            <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                                 xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 150 111"
+                                 style="enable-background: new 0 0 150 111" xml:space="preserve">
+                            <g transform="translate(0.000000,111.000000) scale(0.100000,-0.100000)">
+                            <path d="M950,705L555,310L360,505C253,612,160,700,155,700c-6,0-44-34-85-75l-75-75l278-278L550-5l475,475c261,261,475,480,475,485c0,13-132,145-145,145C1349,1100,1167,922,950,705z" />
+
+
+
+
+
+
+
+                            </g>
+                        </svg>
+                            طراحی و توسعه وب سایت
+                        </label>
+                        <input id="opt-3" type="checkbox" value="frontend-developing" />
+                        <label for="opt-3">
+                            <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                                 xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 150 111"
+                                 style="enable-background: new 0 0 150 111" xml:space="preserve">
+                            <g transform="translate(0.000000,111.000000) scale(0.100000,-0.100000)">
+                            <path d="M950,705L555,310L360,505C253,612,160,700,155,700c-6,0-44-34-85-75l-75-75l278-278L550-5l475,475c261,261,475,480,475,485c0,13-132,145-145,145C1349,1100,1167,922,950,705z" />
+
+
+
+                            </g>
+                        </svg>
+                            توسعه فرانت اند
+                        </label>
+                        <input id="opt-4" type="checkbox" value="instagramBot" />
+                        <label for="opt-4" class="rtl">
+                            <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                                 xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 150 111"
+                                 style="enable-background: new 0 0 150 111" xml:space="preserve">
+                            <g transform="translate(0.000000,111.000000) scale(0.100000,-0.100000)">
+                            <path d="M950,705L555,310L360,505C253,612,160,700,155,700c-6,0-44-34-85-75l-75-75l278-278L550-5l475,475c261,261,475,480,475,485c0,13-132,145-145,145C1349,1100,1167,922,950,705z" />
+
+
+
+
+
+
+
+                            </g>
+                        </svg>
+                            بات ایستاگرام
+                        </label>
+                    </span>
+
+                </div>
+                <div class="work-request--information rtl">
+                    <div class="information-name" style="width: 30%">
+                        <input id="name" type="text" spellCheck="false" required />
+                        <label for="name" style="right: 0; left: auto">نام</label>
+                    </div>
+                    <div class="information-email" style="width: 30%">
+                        <input id="email" type="email" spellCheck="false" required />
+                        <label for="email" style="right: 0; left: auto">ایمیل</label>
+                    </div>
+                    <div class="information-email" style="width: 30%">
+                        <input id="mobile" type="tel" spellCheck="false" required />
+                        <label for="mobile" style="right: 0; left: auto">موبایل</label>
+                    </div>
+                </div>
+                <input type="submit" class="border-radius-5" value="ارسال درخواست" />
+            </form>
+        </div>
+    </li>
+    <li class="l-section section am-hire" id="hire">
+        <div class="hire">
+            <h2>چه می خواهید؟</h2>
+            <form class="work-request" method="post" onsubmit="sendRequest(event)">
+                <input type="hidden" id="requestItems" class="" />
+                <div class="work-request--options">
+                    <span class="options-a">
+                        <input id="opt-1" type="checkbox" value="backend" />
+                        <label for="opt-1" class="rtl">
+                            <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                                 xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 150 111"
+                                 style="enable-background: new 0 0 150 111" xml:space="preserve">
+                            <g transform="translate(0.000000,111.000000) scale(0.100000,-0.100000)">
+                            <path d="M950,705L555,310L360,505C253,612,160,700,155,700c-6,0-44-34-85-75l-75-75l278-278L550-5l475,475c261,261,475,480,475,485c0,13-132,145-145,145C1349,1100,1167,922,950,705z" />
+
+
+
+
+
+
+
+                            </g>
+                        </svg>
+                            توسعه بک اند
+                        </label>
+                        <input id="opt-2" type="checkbox" value="website-developing" />
+                        <label for="opt-2">
+                            <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                                 xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 150 111"
+                                 style="enable-background: new 0 0 150 111" xml:space="preserve">
+                            <g transform="translate(0.000000,111.000000) scale(0.100000,-0.100000)">
+                            <path d="M950,705L555,310L360,505C253,612,160,700,155,700c-6,0-44-34-85-75l-75-75l278-278L550-5l475,475c261,261,475,480,475,485c0,13-132,145-145,145C1349,1100,1167,922,950,705z" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                            </g>
+                        </svg>
+                            طراحی و توسعه کامل وب سایت
+                        </label>
+                        <input id="opt-3" type="checkbox" value="frontend-developing" />
+                        <label for="opt-3">
+                            <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                                 xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 150 111"
+                                 style="enable-background: new 0 0 150 111" xml:space="preserve">
+                            <g transform="translate(0.000000,111.000000) scale(0.100000,-0.100000)">
+                            <path d="M950,705L555,310L360,505C253,612,160,700,155,700c-6,0-44-34-85-75l-75-75l278-278L550-5l475,475c261,261,475,480,475,485c0,13-132,145-145,145C1349,1100,1167,922,950,705z" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                            </g>
+                        </svg>
+                            توسعه فرانت اند
+                        </label>
+
+                    </span>
+
+                </div>
+                <div class="work-request--information rtl">
+                    <div class="information-name" style="width: 30%">
+                        <input id="name" type="text" spellCheck="false" required />
+                        <label for="name" style="right: 0; left: auto">نام</label>
+                    </div>
+                    <div class="information-email" style="width: 30%">
+                        <input id="email" type="email" spellCheck="false" required />
+                        <label for="email" style="right: 0; left: auto">ایمیل</label>
+                    </div>
+                    <div class="information-email" style="width: 30%">
+                        <input id="mobile" type="tel" spellCheck="false" required />
+                        <label for="mobile" style="right: 0; left: auto">موبایل</label>
+                    </div>
+                </div>
+                <input type="submit" class="border-radius-5" value="ارسال درخواست" />
+            </form>
+        </div>
+    </li>
+
+
+</ul>
+<style>
+    .work-request--options label {
+        margin: 0 4px;
+    }
+</style>
+@section Scripts{
+    <script src="/Content/js/functions-min.js"></script>
+}
